@@ -17,7 +17,7 @@ export const createTodoHTML = ( todo ) => {
         <button class="destroy"></button>
     </div>
     <input class="edit" value="Create a TodoMVC template">
-            `;
+    `;
 
     const liElement = document.createElement('li');
     liElement.innerHTML = html;
