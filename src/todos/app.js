@@ -29,6 +29,7 @@ export const App = (elementId) => {
 
     //* Referencias HTML
     const newDescriptionInput = document.querySelector(ElementIDs.NewTodoInput);
+    const todoListUL = document.querySelector(ElementIDs.TodoList);
 
     //* Listener
     newDescriptionInput.addEventListener('keyup', (event) => {
@@ -40,4 +41,20 @@ export const App = (elementId) => {
         event.target.value = '';
     });
 
+    todoListUL.addEventListener('click', () => {
+        const element = event.target.closest('[data-id]'); //* busca el elemento hmtl que tenga el data atribute mas cercano
+        todoStore.toggleTodo(element.getAttribute('data-id'));
+        console.log(element);
+        displayTodos();
+    });
+
+    todoListUL.addEventListener('click', () => { //* aqui estoy dentro del ul del html
+        const isDetroyElement = event.target.className === 'destroy';
+        const element = event.target.closest('[data-id]'); 
+        if (!element || !isDetroyElement) return;
+        
+        todoStore.deleteTodo(element.getAttribute('data-id'));
+        displayTodos();
+
+    });
 }
