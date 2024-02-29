@@ -44,7 +44,6 @@ export const App = (elementId) => {
     todoListUL.addEventListener('click', () => {
         const element = event.target.closest('[data-id]'); //* busca el elemento hmtl que tenga el data atribute mas cercano
         todoStore.toggleTodo(element.getAttribute('data-id'));
-        console.log(element);
         displayTodos();
     });
 
