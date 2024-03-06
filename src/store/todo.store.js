@@ -1,6 +1,6 @@
 import { Todo } from "../todos/models/todo.model";
 
-const Filters = { //* enum
+export const Filters = { //* enum
     All: 'All',
     Completed: 'Completed',
     Pending: 'Pending',
